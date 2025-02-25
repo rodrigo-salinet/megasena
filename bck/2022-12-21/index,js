@@ -1,0 +1,65 @@
+/**@abstract
+ * verify
+ * getObjId
+ * getObjName
+ * getObjValue
+ * getTableRows
+ */
+class verify(obj) {
+    const tbl_concursos = document.getElementById('tbl_concursos'); // variável tabela concursos
+    const exibir = document.getElementById('exibir'); // variável identificador 'exibir'
+    const quantificar_resultados = document.getElementById('quantificar_resultados'); // variável identificador 'quantificar_resultados'
+
+    /**
+     * retorna o id do objeto
+     * @obj
+     */
+    getObjId(obj) { 
+        console.log(obj.id);			
+        return obj.id;
+    }
+
+    /**
+     * retorna o nome do objeto
+     * @obj
+     */
+    getObjName(obj) {
+        return obj.name;
+    }
+
+    /**
+     * retorna o valor do objeto
+     * @obj
+     */
+    getObjValue(obj) {
+        return obj.value;
+    }
+
+    /**
+     * retorna as linhas de tabela tblObj
+     * @tblObj
+     */
+    getTableRows(tblObj) {
+        return tblObj..getElementsByTagName('tr');
+    }
+
+    /**
+     * retorna o nome da tag do objeto
+     * @obj
+     */
+    getTagName (obj) {
+        return obj.tagName.toLowerCase();
+    }
+
+    /**
+     * retorna verdadeiro se a tag do objeto for input
+     * @obj
+     */
+    isInput(obj) {
+        var objTagName = this.getTagName(obj).toLowerCase();
+        if (objTagName === "input") {
+            return true;
+        }
+        return false;
+    }
+}

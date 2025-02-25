@@ -1,0 +1,165 @@
+<html>
+<head>
+	<title>Resultados por Números - Ordem de Sorteio - MegaSena</title>
+	<style type="text/css">
+		body {
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		table {
+			margin-left: auto;
+			margin-right: auto;
+			border-collapse: collapse;
+			border: 3px solid #000000;
+		}
+
+		td {
+			border-color: #000000;
+			border-style: solid;
+			border-width: 1px;
+			font-size: 12px;
+			text-align: center;
+			vertical-align: middle;
+			padding: 5px;
+		}
+	</style>
+	<script language="javascript" type="text/javascript">
+		function ver_sorteio() {
+			var txt_dezena = Array();
+			txt_dezena[0] = String(document.getElementByid('txt_dezena1').value);
+			txt_dezena[1] = String(document.getElementByid('txt_dezena2').value);
+			txt_dezena[2] = String(document.getElementByid('txt_dezena3').value);
+			txt_dezena[3] = String(document.getElementByid('txt_dezena4').value);
+			txt_dezena[4] = String(document.getElementByid('txt_dezena5').value);
+			txt_dezena[5] = String(document.getElementByid('txt_dezena6').value);
+			var txt_dezena_ordenada = String(txt_dezena.sort());
+			//alert(txt_dezena_ordenada);
+
+			var total = Number(document.getElementByid('total').value);
+
+			var alerta = 'Jogos sorteados:';
+
+			for (var s = 1; s <= total; s++) {
+				var sorteio_temp = String(document.getElementByid('sorteio' + s).value);
+				var sorteio_separado = sorteio_temp.split(';');
+				var sorteio_ordenado = String(sorteio_separado.sort());
+				//alert(sorteio_ordenado);
+
+				var achou = false;
+				var achou_dez1 = false;
+				var achou_dez2 = false;
+				var achou_dez3 = false;
+				var achou_dez4 = false;
+				var achou_dez5 = false;
+				var achou_dez6 = false;
+
+				/*for (var i = 0; i < 6; i++) {
+					if (sorteio_separado[i].valueOf() == txt_dezena1 && achou_dez1 == false && txt_dezena1 != '') {
+						achou = true;
+						achou_dez1 = true;
+					}
+					if (sorteio_separado[i].valueOf() == txt_dezena2 && achou_dez2 == false && txt_dezena2 != '') {
+						achou = true;
+						achou_dez2 = true;
+					}
+					if (sorteio_separado[i].valueOf() == txt_dezena3 && achou_dez3 == false && txt_dezena3 != '') {
+						achou = true;
+						achou_dez3 = true;
+					}
+					if (sorteio_separado[i].valueOf() == txt_dezena4 && achou_dez4 == false && txt_dezena4 != '') {
+						achou = true;
+						achou_dez4 = true;
+					}
+					if (sorteio_separado[i].valueOf() == txt_dezena5 && achou_dez5 == false && txt_dezena5 != '') {
+						achou = true;
+						achou_dez5 = true;
+					}
+					if (sorteio_separado[i].valueOf() == txt_dezena6 && achou_dez6 == false && txt_dezena6 != '') {
+						achou = true;
+						achou_dez6 = true;
+					}
+				}
+				
+				if (achou == true) {
+					//String.fromCharCode(13)
+					alerta +=  ' --- ' + String(document.getElementByid('sorteio_completo'+s).value);
+				}*/
+				if (txt_dezena_ordenada == sorteio_ordenado) {
+					//String.fromCharCode(13)
+					alerta += ' --- ' + String(document.getElementByid('sorteio_completo' + s).value);
+				}
+			}
+			alert(alerta);
+		}
+	</script>
+</head>
+<body>
+	<form name="frm_sorteios" id="frm_sorteios">
+		<input name="sorteio1" id="sorteio1" value="41;5;4;52;30;33" type="hidden" />
+		<input name="sorteio_completo1" id="sorteio_completo1" value="Data: 11/03/1996; Dezena 1: 41; Dezena 2: 5; Dezena 3: 4; Dezena 4: 52; Dezena 5: 30; Dezena 6: 33; Prêmio Acumulado: 41." type="hidden" />
+		<input name="total" id="total" value="1378" type="hidden" />
+		<table>
+			<tr>
+				<td><input name="txt_dezena1" id="txt_dezena1" size="2" maxlength="2" type="text"/></td>
+				<td><input name="txt_dezena2" id="txt_dezena2" size="2" maxlength="2" type="text"/></td>
+				<td><input name="txt_dezena3" id="txt_dezena3" size="2" maxlength="2" type="text"/></td>
+				<td><input name="txt_dezena4" id="txt_dezena4" size="2" maxlength="2" type="text"/></td>
+				<td><input name="txt_dezena5" id="txt_dezena5" size="2" maxlength="2" type="text"/></td>
+				<td><input name="txt_dezena6" id="txt_dezena6" size="2" maxlength="2" type="text"/></td>
+				<td><input value="Pesquisar" onClick="ver_sorteio();" type="button" /></td>
+			</tr>
+		</table>
+		<br />
+		<table>
+			<tr>
+				<td>
+					<table>
+						<Tbody>
+							<tr>
+								<td>Numero: <strong> 1 </strong></td>
+								<td>Sorteios: <strong> 131 </strong></td>
+							</tr>
+						</Tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr>
+							<td>Ordem:</td>
+							<td>Data:</td>
+							<td>Dezena 1:</td>
+							<td>Dezena 2:</td>
+							<td>Dezena 3:</td>
+							<td>Dezena 4:</td>
+							<td>Dezena 5:</td>
+							<td>Dezena 6:</td>
+							<td>Sena:</td>
+							<td>Quina:</td>
+							<td>Quadra:</td>
+						</tr>
+						<tr>
+							<td colspan="2">Total:</td>
+							<td> 27 </td>
+							<td> 17 </td>
+							<td> 20 </td>
+							<td> 28 </td>
+							<td> 27 </td>
+							<td> 16 </td>
+							<td>-</td>
+							<td>-</td>
+							<td>-</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<br />
+		Maior numero de resultados: <strong>169</strong>
+		<br />
+		Menor numero de resultados: <strong>111</strong>
+	</form>
+</body>
+</html>

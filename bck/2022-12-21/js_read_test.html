@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>Teste leitura de arquivo externo via javascript</title>
+<style type="TEXT/CSS">
+table {
+	border-collapse: collapse;
+}
+td {
+	border-color: #000000;
+	border-style: solid;
+	border-width: 1px;	
+}
+</style>
+</head>
+<body>
+<div id="div_teste">teste<br></div>
+<script language="javascript" type="text/javascript">
+    var xmlhttp; // aqui define a variável que receberá o objeto XMLHttpRequest
+    var linhas; // aqui define a variável que receberá a matriz de linhas do arquivo externo
+    var max_linhas = 10; // aqui define a quantidade máxima de linhas a serem exibidas
+    var div_teste = document.getElementById("div_teste"); // aqui é definida a variável que receberá o objeto div_teste
+    var colunas_temp; // aqui é definida a variável que receberá as colunas temporariamente dentro do loop
+    console.log(div_teste.innerHTML.toString());
+    xmlhttp = new XMLHttpRequest(); // aqui a variável xmlhttp recebe o objeto XMLHttpRequest
+    xmlhttp.open('GET', "csvfinal.csv", false); // aqui a variável xmlhttp faz a leitura do arquivo externo
+    xmlhttp.send(); // aqui a variável xmlhttp envia os dados do arquivo externo para o navegador
+    linhas = xmlhttp.responseText.split('\r\n'); // aqui a variável linhas recebe cada linha do arquivo externo em forma de matriz
+    console.log(linhas.length);
+    for (var l = 0; l < linhas.length; l++) { // aqui realiza o loop de leitura de todas as linhas, exceto pelo limite da variável max_linhas
+        if (l == max_linhas) { // aqui valida se a linha atual é igual à quantidade máxima de linhas definida na variável max_linhas
+            break; // aqui interrompe o loop, caso o validador retorne verdadeiro
+        }
+        div_teste.innerHTML += "Linha [" + l + "]: " + linhas[l].toString() + "<br>\n";
+        colunas_temp = linhas[l].split(";");
+        for (var c = 0; c < colunas_temp.length; c++) {
+            console.log(colunas_temp[c]);
+        }
+    }
+    // document.write(xmlhttp.responseText.split('\r\n').map(function (i) {return i.replace(/(.+),(.+),(.+)/g, 'Name: $1<br>Color: $2<br>Avatar: $3<br>')} ).join('<br/>'));
+</script>
+</body>
+</html>
